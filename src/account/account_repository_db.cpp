@@ -39,11 +39,10 @@ namespace account {
 	bool AccountRepositoryDB::save(const AccountInfo &accInfo) {
 		bool successful = db.executeQuery(
 			fmt::format(
-				"UPDATE `accounts` SET `type` = {}, `premdays` = {}, `lastday` = {}, `creation` = {}, `premdays_purchased` = {} WHERE `id` = {}",
+				"UPDATE `accounts` SET `type` = {}, `premdays` = {}, `lastday` = {}, `premdays_purchased` = {} WHERE `id` = {}",
 				static_cast<uint8_t>(accInfo.accountType),
 				accInfo.premiumRemainingDays,
 				accInfo.premiumLastDay,
-				accInfo.creationTime,
 				accInfo.premiumDaysPurchased,
 				accInfo.id
 			)
